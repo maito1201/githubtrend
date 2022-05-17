@@ -33,7 +33,7 @@ func ScrapeGitHubTrend() ([]ScrapeResult, error) {
 	}
 
 	document.Find(".Box-row").Each(func(i int, s *goquery.Selection) {
-		href, ok := s.Find("a").First().Attr("href")
+		href, ok := s.Find("h1").Find("a").First().Attr("href")
 		if !ok {
 			return
 		}
